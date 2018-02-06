@@ -1,0 +1,29 @@
+plugins {
+    id "com.github.johnrengelman.shadow" version "2.0.2"
+}
+
+group 'ru.pearx.chatbot.discord.negater'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven {
+        url  "https://jitpack.io"
+    }
+}
+
+dependencies {
+    compile "com.github.austinv11:Discord4J:2.9.3"
+    compile "com.google.code.gson:gson:2.8.2"
+    compile "ch.qos.logback:logback-classic:1.2.3"
+
+}
+
+jar {
+    manifest {
+        attributes("Main-Class": "ru.pearx.chatbot.discord.negater.Main")
+    }
+}
