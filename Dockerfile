@@ -8,6 +8,7 @@ ARG home=/var/alexey-egorov
 
 ENV ALEXEY_EGOROV_TOKEN_TYPE=""
 ENV ALEXEY_EGOROV_TOKEN=""
+ENV XMX="20M"
 
 COPY build/libs/alexey-egorov-*-all.jar /alexey-egorov.jar
 
@@ -23,4 +24,4 @@ WORKDIR ${home}
 
 VOLUME ${home}
 
-ENTRYPOINT java -jar /alexey-egorov.jar "$ALEXEY_EGOROV_TOKEN_TYPE" "$ALEXEY_EGOROV_TOKEN"
+ENTRYPOINT java "-Xmx$XMX" -jar /alexey-egorov.jar

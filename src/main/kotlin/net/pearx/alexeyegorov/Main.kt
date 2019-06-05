@@ -22,9 +22,13 @@ lateinit var client: JDA private set
 lateinit var nouns: List<Noun>
 lateinit var adjectives: List<Adjective>
 
-fun main(vararg args: String) {
-    if (args.size < 2)
-        exit("Usage: alexey-egorov <bot|client> <token>")
+fun main() {
+    val tokenType = System.getenv(TOKEN_TYPE_VARIABLE)
+    val token = System.getenv(TOKEN_VARIABLE)
+    if(tokenType == null)
+        exit("Please set the $TOKEN_TYPE_VARIABLE environment variable!")
+    if(token == null)
+        exit("Please set the $TOKEN_VARIABLE environment variable!")
 
     log.info("Loading the used word list...")
     val usedWords = WordForm::class.java.getResourceAsStream("/used.txt").reader().readLines()
@@ -90,8 +94,8 @@ fun main(vararg args: String) {
     log.info("Done processing the OpenCorpora dictionary")
 
     log.info("Starting the Discord client...")
-    client = JDABuilder(AccountType.valueOf(args[0].toUpperCase())).apply {
-        setToken(args[1])
+    client = JDABuilder(AccountType.valueOf(tokenType.toUpperCase())).apply {
+        setToken(token)
         addEventListener(object : ListenerAdapter() {
             override fun onMessageReceived(e: MessageReceivedEvent) {
                 if (e.author.id != client.selfUser.id) {
