@@ -76,7 +76,7 @@ fun main(vararg args: String) {
                     adjectives.add(Adjective(map))
                 }
                 else
-                    log.error("Invalid adjective: $map")
+                    log.warn("Invalid adjective: $map")
             }
         }
         log.info("It did it!")
