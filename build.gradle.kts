@@ -24,7 +24,7 @@ dependencies {
 tasks {
     named<Jar>("jar") {
         manifest {
-            attributes("Main-Class" to "net.pearx.alexeyegorov.discord")
+            attributes("Main-Class" to "net.pearx.alexeyegorov.Main")
         }
     }
 }
