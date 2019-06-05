@@ -8,6 +8,7 @@ const val TOKEN_VARIABLE = "ALEXEY_EGOROV_TOKEN"
 
 const val DICTIONARY_URL = "http://opencorpora.org/files/export/dict/dict.opcorpora.xml.bz2"
 val REGEX_IF_WHAT = Regex("если что(?:-?то)?(.*?)(?:[?\\n,.$]|$)", RegexOption.IGNORE_CASE)
+val REGEX_WHO_IS = Regex("кто (так[а-я]{2,3})(.*?)(?:[?\\n,.\$]|$)", RegexOption.IGNORE_CASE)
 val DICTIONARY_PATH: Path = Paths.get("dict.xml")
 val NOUN_TAGS = arrayOf("NOUN", "NPRO")
 val ADJECTIVE_TAGS = arrayOf("ADJF", "PRTF")

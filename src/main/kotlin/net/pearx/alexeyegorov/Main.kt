@@ -105,7 +105,7 @@ fun main() {
                         e.channel.sendMessage("Если что${it.groupValues[1]}?").queue()
                     }
 
-                    if (BTW_TRIGGERS.any { it in msg.toLowerCase() }) {
+                    if (BTW_TRIGGERS.any { it in msg.toLowerCase() } || REGEX_WHO_IS.matches(msg)) {
                         val noun = nouns[Random.nextInt(nouns.size)]
                         val adj = adjectives[Random.nextInt(adjectives.size)]
                         e.channel.sendMessage("${adj.values[noun.wordForm]!!.capitalize()} ${noun.value}").queue()
